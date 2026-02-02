@@ -4,7 +4,6 @@ import cors from "cors";
 import connectionPool from "./utils/db.mjs";
 
 const app = express()
-const port = process.env.PORT || 4000;
 
 app.use(express.json());
 
@@ -12,8 +11,12 @@ app.use(
     cors({
         origin: [
             process.env.FRONTEND_URL, 
-            "https://react-portfolio-app-green.vercel.app",   
+            "https://react-portfolio-app-green.vercel.app",
+            "http://localhost:5173", 
         ],
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization']
     })
 );
 
@@ -34,6 +37,13 @@ app.get("/profiles", (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server is running at ${port}`);
-});
+
+if (process.env.NODE_ENV !== 'production') {
+    const port = process.env.PORT || 4000;
+    app.listen(port, () => {
+        console.log(`Server is running at ${port}`);
+    });
+}
+
+
+export default app;
