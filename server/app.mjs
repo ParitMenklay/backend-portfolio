@@ -12,7 +12,7 @@ app.use(
     cors({
         origin: [
             process.env.FRONTEND_URL, 
-            // "https://your-frontend.vercel.app",   
+            "https://react-portfolio-app-green.vercel.app",   
         ],
     })
 );
