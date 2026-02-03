@@ -13,6 +13,7 @@ app.use(
             process.env.FRONTEND_URL,
             "https://react-portfolio-app-green.vercel.app",
             "http://localhost:5173",
+            process.env.CONNECTION_STRING,
         ],
         credentials: true,
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
