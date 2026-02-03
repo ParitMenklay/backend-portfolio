@@ -11,9 +11,7 @@ app.use(
     cors({
         origin: [
             process.env.FRONTEND_URL,
-            "https://react-portfolio-app-green.vercel.app",
-            "http://localhost:5173",
-            process.env.CONNECTION_STRING,
+            "https://react-portfolio-app-green.vercel.app", 
         ],
         credentials: true,
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -26,7 +24,7 @@ app.get("/test", (req, res) => {
 });
 
 app.get("/health", (req, res) => {
-    res.status(200).json({ message: "OK555" });
+    res.status(200).json({ message: "OK" });
 });
 
 app.get("/profiles", (req, res) => {
